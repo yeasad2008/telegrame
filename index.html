@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="Viral Link Server" />
+  <meta property="og:description" content="দেখুন সবার আগে - গোপন টেলিগ্রাম লিংক ফাঁস!" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.github.io/filename.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // প্রথম AdsTerra লিংকে রিডাইরেক্ট
+    const firstLink = "https://www.adsterra.com/your-ad-link";  // ⬅️ এখানে তোমার AdsTerra লিংক দাও
+    const secondLink = "https://www.yoursecondlink.com";        // ⬅️ ফিরে এলে এই লিংকে যাবে
+
+    // ট্রাফিক আসা মাত্র প্রথম লিংকে পাঠাও
+    window.location.href = firstLink;
+
+    // ফিরে এলে চেক করার জন্য listener
+    let redirected = sessionStorage.getItem("redirectedOnce");
+
+    if (redirected) {
+      sessionStorage.removeItem("redirectedOnce");
+      window.location.href = secondLink;
+    } else {
+      sessionStorage.setItem("redirectedOnce", "true");
+    }
+  </script>
+</body>
+</html>
